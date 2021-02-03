@@ -4,14 +4,15 @@ def addcpfs():
 
     #abrir arquivo Json para escrita
     datacpfs = open("cpfs.json","w")
-    tampletejson = {'cpf':''}
-    datacpfs.write(str(tampletejson))
 
-#######################################################
+    #inserir chave/valor arquivo json de cpfs
+
     print("___________CADASTRO DE CPFS___________\n")
     cpf = input("Insira CPF:\n")
-#######################################################
-    #adicionar cpf ao valor da chave
+    tampletejson = {'cpf':'{}'.format(cpf)}
+    datacpfs.write(str(tampletejson))
+
+
 
 
 
