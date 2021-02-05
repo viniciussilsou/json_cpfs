@@ -13,7 +13,7 @@ def addcpftolist(cpfdata):
 
 def loaddatajsonfile():
 
-    newfile = open("venv/cpfsfile.json", "w")
+    newfile = open("cpfsfile.json", "w")
 
     return newfile
 
@@ -36,6 +36,10 @@ def selectfunction():
 
     return func
 
+
+
+
+
 def main():
 
     func = selectfunction()
@@ -44,11 +48,10 @@ def main():
 
         cpf = inputcpf()
         cpfs = addcpftolist(cpf)
-        newfile = loaddatajsonfile()
         datafile = jsondumps(cpfs)
+        newfile = loaddatajsonfile()
         newfile.write(datafile)
         jsonclose(newfile)
-
 
     else:
         print("VALOR INVALIDO!\n")
