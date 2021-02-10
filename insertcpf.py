@@ -1,7 +1,9 @@
 import json
 
 def inputcpf():
+
     cpf = input("Digite CPF:\n")
+
     return cpf
 
 def addcpftolist(cpfdata):
@@ -11,53 +13,42 @@ def addcpftolist(cpfdata):
 
     return cpfs
 
-def loaddatajsonfile():
+def gravarlista(lista):
 
-    newfile = open("cpfsfile.json", "w")
-
-    return newfile
-
-def jsonclose(jsonfile):
-
-    return jsonfile.close()
-
-
-def jsondumps(data):
-
-    datafile = json.dumps(data)
-    return datafile
+    jsonfile = open("cpfsfile.josn","w")
+    datalist = json.dumps(lista)
+    jsonfile.write(datalist)
+    jsonfile.close()
 
 def selectfunction():
 
-    func = input("DIGITE A FUNÇÃO DESEJADA:\n"
-          "A - ADICIONAR NOVO CPF.\n"
+    func = input(
+          "\nDIGITE A FUNÇÃO DESEJADA:\n"
+          "\n"
+          "A - ADICIONAR NOVO CPF\n"
           "E - EXCLUIR CPF\n"
           "C - CONSULTAR CPF\n")
 
     return func
 
-
-
-
-
 def main():
 
     func = selectfunction()
 
-    if func == 'A':
+    while func == "A":
 
         cpf = inputcpf()
         cpfs = addcpftolist(cpf)
-        datafile = jsondumps(cpfs)
-        newfile = loaddatajsonfile()
-        newfile.write(datafile)
-        jsonclose(newfile)
+        gravarlista(cpfs)
+        print("CPF {} GRAVADO !".format(cpfs))
+        func = selectfunction()
 
     else:
-        print("VALOR INVALIDO!\n")
-        print(func)
+        print("Função Inválida ! Digite novamente:\n")
+        func = selectfunction()
 
 main()
+
 
 
 
