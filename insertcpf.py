@@ -3,14 +3,17 @@ import json
 def inputcpf():
 
     cpf = input("Digite CPF:\n")
-
     return cpf
 
+def convertecpf(cpf):
+    
+    cpf = int(cpf)
+    return cpf
+    
 def addcpftolist(cpfdata):
 
     cpfs = []
     cpfs.append(cpfdata)
-
     return cpfs
 
 def gravarlista(lista):
@@ -38,6 +41,7 @@ def main():
     while func == "A":
 
         cpf = inputcpf()
+        cpf = convertecpf(cpf)
         cpfs = addcpftolist(cpf)
         gravarlista(cpfs)
         print("CPF {} GRAVADO !".format(cpfs))
@@ -47,7 +51,7 @@ def main():
         print("Função Inválida ! Digite novamente:\n")
         func = selectfunction()
 
-main()
+
 
 
 
