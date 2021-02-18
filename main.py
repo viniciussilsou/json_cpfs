@@ -1,3 +1,4 @@
-from insertcpf import main
+from insertcpf import main, readcpf
 
 main()
+readcpf()

@@ -10,18 +10,28 @@ def convertecpf(cpf):
     cpf = int(cpf)
     return cpf
     
-def addcpftolist(cpfdata):
+#def addcpftolist(cpfdata):
 
-    cpfs = []
-    cpfs.append(cpfdata)
-    return cpfs
+#    cpfs = []
+ #   cpfs.append(cpfdata)
+  #  return cpfs
+
+def readcpf(cpfdata):
+
+    with open("cpfsfile.json") as cpfsfile:
+        listline = cpfsfile.readline()
+        listline.append(cpfdata)
+
+        return listline
 
 def gravarlista(lista):
 
-    jsonfile = open("cpfsfile.josn","w")
-    datalist = json.dumps(lista)
-    jsonfile.write(datalist)
-    jsonfile.close()
+
+    with open("cpfsfile.json") as jsonfile:
+
+        datalist = json.dumps(lista)
+        jsonfile.write(datalist)
+
 
 def selectfunction():
 
@@ -42,7 +52,8 @@ def main():
 
         cpf = inputcpf()
         cpf = convertecpf(cpf)
-        cpfs = addcpftolist(cpf)
+        #cpfs = addcpftolist(cpf)
+        cpfs = readcpf(cpf)
         gravarlista(cpfs)
         print("CPF {} GRAVADO !".format(cpfs))
         func = selectfunction()
