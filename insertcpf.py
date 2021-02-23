@@ -16,21 +16,21 @@ def convertecpf(cpf):
  #   cpfs.append(cpfdata)
   #  return cpfs
 
-def readcpf(cpfdata):
+def addcpftolist(cpfdata):
 
-    with open("cpfsfile.json") as cpfsfile:
-        listline = cpfsfile.readline()
+    with open("cpfsfile.josn") as cpfsfile:
+
+        listline = json.loads(cpfsfile)
         listline.append(cpfdata)
 
         return listline
 
-def gravarlista(lista):
+def gravarlistajsonfile(lista):
 
+    with open("cpfsfile.josn") as jsonfile:
 
-    with open("cpfsfile.json") as jsonfile:
-
-        datalist = json.dumps(lista)
-        jsonfile.write(datalist)
+        datalist = json.load(lista)
+        jsonfile.dumps(datalist)
 
 
 def selectfunction():
@@ -48,15 +48,18 @@ def main():
 
     func = selectfunction()
 
+    open("cpfsfile.josn","w")
+
     while func == "A":
 
-        cpf = inputcpf()
-        cpf = convertecpf(cpf)
-        #cpfs = addcpftolist(cpf)
-        cpfs = readcpf(cpf)
-        gravarlista(cpfs)
-        print("CPF {} GRAVADO !".format(cpfs))
-        func = selectfunction()
+            cpf = inputcpf()
+            cpf = convertecpf(cpf)
+            #cpfs = addcpftolist(cpf)
+            open("cpfsfile.josn","r")
+            cpfs = addcpftolist(cpf)
+            gravarlistajsonfile(cpfs)
+            print("CPF {} GRAVADO !".format(cpfs))
+            func = selectfunction()
 
     else:
         print("Função Inválida ! Digite novamente:\n")

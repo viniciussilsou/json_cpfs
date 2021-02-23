@@ -1,4 +1,2 @@
-from insertcpf import main, readcpf
-
+from insertcpf import main, addcpftolist
 main()
-readcpf()
