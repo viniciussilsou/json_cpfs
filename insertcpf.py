@@ -16,12 +16,12 @@ def convertecpf(cpf):
  #   cpfs.append(cpfdata)
   #  return cpfs
 
-def addcpftolist(cpfdata):
+def addcpftolist(cpf):
 
     with open("cpfsfile.josn") as cpfsfile:
 
         listline = json.loads(cpfsfile)
-        listline.append(cpfdata)
+        listline.append(cpf)
 
         return listline
 
@@ -29,8 +29,8 @@ def gravarlistajsonfile(lista):
 
     with open("cpfsfile.josn") as jsonfile:
 
-        datalist = json.load(lista)
-        jsonfile.dumps(datalist)
+        datalist = json.dumps(lista)
+        jsonfile.write(str(datalist))
 
 
 def selectfunction():
