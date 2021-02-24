@@ -1,2 +1,2 @@
-from insertcpf import main, addcpftolist
+from insertcpf import main
 main()

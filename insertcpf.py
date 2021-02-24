@@ -1,62 +1,47 @@
 import json
 
-def inputcpf():
+def lerarquivo():
 
-    cpf = input("Digite CPF:\n")
-    return cpf
+    with open("cpfsfile.json") as arquivo:
+        cpfs = json.load(arquivo)
 
-def convertecpf(cpf):
-    
-    cpf = int(cpf)
-    return cpf
+    return cpfs
 
-def addcpftolist(cpf):
+def inserircpfnalista(cpf):
 
-    with open("cpfsfile.josn","w") as cpfsfile:
+    cpfs = []
+    cpfs.append(cpf)
 
-        listline = json.loads(cpfsfile)
-        listline.append(cpf)
-
-        return listline
-
-def gravarlistajsonfile(lista):
-
-    with open("cpfsfile.josn","a+") as jsonfile:
-
-        datalist = json.dumps(lista)
-        jsonfile.write(str(datalist))
+    return cpfs
 
 
-def selectfunction():
+def gravallistanoarquivo(lista):
 
-    func = input(
-          "\nDIGITE A FUNÇÃO DESEJADA:\n"
-          "\n"
-          "A - ADICIONAR NOVO CPF\n"
-          "E - EXCLUIR CPF\n"
-          "C - CONSULTAR CPF\n")
+    with open("cpfsfile.josn","a+") as arquivo:
 
-    return func
+        listacpfs = json.dumps(lista)
+        arquivo.write(listacpfs)
+
+
+
 
 def main():
 
-    func = selectfunction()
+    cpf = int(input("Digite CPF:"))
+    listacpf = inserircpfnalista(cpf)
+    gravallistanoarquivo(listacpf)
 
-    open("cpfsfile.josn","w")
 
-    if func == "A":
 
-            cpf = inputcpf()
-            cpf = convertecpf(cpf)
-            #cpfs = addcpftolist(cpf)
-            cpfs = addcpftolist(cpf)
-            gravarlistajsonfile(cpfs)
-            print("CPF {} GRAVADO !".format(cpfs))
-            func = selectfunction()
 
-    else:
-        print("Função Inválida ! Digite novamente:\n")
-        func = selectfunction()
+
+
+
+
+
+
+
+
 
 
 
