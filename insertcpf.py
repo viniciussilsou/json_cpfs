@@ -17,7 +17,7 @@ def inserircpfnalista(cpf):
 
 def gravallistanoarquivo(lista):
 
-    with open("cpfsfile.josn","a+") as arquivo:
+    with open("cpfsfile.josn") as arquivo:
 
         listacpfs = json.dumps(lista)
         arquivo.write(listacpfs)
