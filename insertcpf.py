@@ -3,33 +3,25 @@ import json
 def lerarquivo():
 
     with open("cpfsfile.json") as arquivo:
-        cpfs = json.load(arquivo)
+        jsonlist = json.load(arquivo)
 
-    return cpfs
-
-def inserircpfnalista(cpf):
-
-    cpfs = []
-    cpfs.append(cpf)
-
-    return cpfs
+        return jsonlist
 
 
 def gravallistanoarquivo(lista):
 
-    with open("cpfsfile.josn") as arquivo:
+    with open("cpfsfile.josn","w") as arquivo:
 
         listacpfs = json.dumps(lista)
         arquivo.write(listacpfs)
 
-
-
-
 def main():
 
-    cpf = int(input("Digite CPF:"))
-    listacpf = inserircpfnalista(cpf)
-    gravallistanoarquivo(listacpf)
+    lista = lerarquivo()
+    cpf = input("Digite o CFP:\n")
+    lista.append(cpf)
+    gravallistanoarquivo(lista)
+
 
 
 
