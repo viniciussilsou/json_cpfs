@@ -10,7 +10,7 @@ def lerarquivo():
 
 def gravallistanoarquivo(lista):
 
-    with open("cpfsfile.josn","w") as arquivo:
+    with open("cpfsfile.json","w") as arquivo:
 
         listacpfs = json.dumps(lista)
         arquivo.write(listacpfs)
@@ -21,6 +21,16 @@ def main():
     cpf = input("Digite o CFP:\n")
     lista.append(cpf)
     gravallistanoarquivo(lista)
+
+
+def excluircpf():
+
+    lista = lerarquivo()
+    cpf = input("Digite o CPF que deseja excluir:\n")
+    indice = lista.index(cpf)
+    lista.remove(cpf)
+
+excluircpf()
 
 
 
