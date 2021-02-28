@@ -1,4 +1,4 @@
-from insertcpf import inserircpf,excluircpf,selecionarfuncao
+from insertcpf import inserircpf,excluircpf,selecionarfuncao,buscarcpf
 
 def cadastrodecpsf():
 
@@ -6,9 +6,20 @@ def cadastrodecpsf():
 
     if funcao == 'C':
         inserircpf()
+
     elif funcao == 'E':
         excluircpf()
+
+    elif funcao == 'B':
+        buscarcpf()
+
     else:
         print("Função Inválida !")
 
 cadastrodecpsf()
+
+repetir = input("EXECUTAR NOVAMENTE ? S/N")
+if repetir == "S":
+    cadastrodecpsf()
+else:
+    print("FIM")
