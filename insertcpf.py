@@ -14,27 +14,23 @@ def gravallistanoarquivo(lista):
         listacpfs = json.dumps(lista)
         arquivo.write(listacpfs)
 
-def inserircpf():
+def inserircpf(cpf):
 
     lista = lerarquivo()
-    cpf = input("Digite o CPF:\n")
     lista.append(cpf)
     gravallistanoarquivo(lista)
     print("CPF Incluído com sucesso !")
 
-def excluircpf():
+def excluircpf(cpf):
 
     lista = lerarquivo()
-    cpf = input("Digite o CPF que deseja excluir:\n")
     lista.remove(cpf)
     gravallistanoarquivo(lista)
     print("CPF Deletado com sucesso !")
 
-def buscarcpf():
+def buscarcpf(cpf):
 
-    cpf = input("Digite o CPF que deseja buscar:\n")
     lista = lerarquivo()
-
     if cpf in lista:
         print("CPF Existe !")
 
@@ -43,7 +39,7 @@ def buscarcpf():
         incluir = input("Deseja inserir ? S/N\n")
 
         if incluir == "S":
-            inserircpf()
+            inserircpf(cpf)
 
         elif incluir == "N":
             print("VSF")

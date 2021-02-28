@@ -3,23 +3,22 @@ from insertcpf import inserircpf,excluircpf,selecionarfuncao,buscarcpf
 def cadastrodecpsf():
 
     funcao = selecionarfuncao()
+    cpf = input("Digite CPF:\n")
 
     if funcao == 'C':
-        inserircpf()
+        inserircpf(cpf)
 
     elif funcao == 'E':
-        excluircpf()
+        excluircpf(cpf)
 
     elif funcao == 'B':
-        buscarcpf()
+        buscarcpf(cpf)
 
     else:
-        print("Função Inválida !")
+        print("Função Invalida !\n")
+        cadastrodecpsf()
 
 cadastrodecpsf()
 
-repetir = input("EXECUTAR NOVAMENTE ? S/N")
-if repetir == "S":
-    cadastrodecpsf()
-else:
-    print("FIM")
+
+
