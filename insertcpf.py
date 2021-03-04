@@ -1,5 +1,15 @@
 import json
 
+def selecionarfuncao():
+
+    funcao = input("ESCOLHA UMA OPÇÃO:\n"
+          "\n"
+          "DIGITE - C - PARA CADASTRAR CPF\n"
+          "DIGITE - E - PARA EXCLUIR CPF:\n"
+          "DIGITE - B - PARA BUSCAR CPF:\n")
+
+    return funcao
+
 def lerarquivo():
 
     with open("cpfsfile.json") as arquivo:
@@ -23,10 +33,16 @@ def inserircpf(cpf):
 
 def excluircpf(cpf):
 
-    lista = lerarquivo()
-    lista.remove(cpf)
-    gravallistanoarquivo(lista)
-    print("CPF Deletado com sucesso !")
+    confirma = input("Confirma a exclusão do CPF {} ? S/N\n".format(cpf))
+
+    if confirma == "S" or 's':
+        lista = lerarquivo()
+        lista.remove(cpf)
+        gravallistanoarquivo(lista)
+        print("CPF Deletado com sucesso !")
+    else:
+        selecionarfuncao()
+
 
 def buscarcpf(cpf):
 
@@ -44,15 +60,7 @@ def buscarcpf(cpf):
         elif incluir == "N":
             print("VSF")
 
-def selecionarfuncao():
 
-    funcao = input("ESCOLHA UMA OPÇÃO:\n"
-          "\n"
-          "DIGITE - C - PARA CADASTRAR CPF\n"
-          "DIGITE - E - PARA EXCLUIR CPF:\n"
-          "DIGITE - B - PARA BUSCAR CPF:\n")
-
-    return funcao
 
 
 
