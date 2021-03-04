@@ -5,13 +5,13 @@ def cadastrodecpsf():
     funcao = selecionarfuncao()
     cpf = input("Digite CPF:\n")
 
-    if funcao == 'C':
+    if funcao == 'C' or 'c':
         inserircpf(cpf)
 
-    elif funcao == 'E':
+    elif funcao == 'E' or 'e':
         excluircpf(cpf)
 
-    elif funcao == 'B':
+    elif funcao == 'B' or 'b':
         buscarcpf(cpf)
 
     else:

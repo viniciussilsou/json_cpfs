@@ -33,31 +33,37 @@ def inserircpf(cpf):
 
 def excluircpf(cpf):
 
-    confirma = input("Confirma a exclusão do CPF {} ? S/N\n".format(cpf))
+    listacpf = lerarquivo()
 
-    if confirma == "S" or 's':
-        lista = lerarquivo()
-        lista.remove(cpf)
-        gravallistanoarquivo(lista)
-        print("CPF Deletado com sucesso !")
+    if cpf in listacpf:
+
+        confirma = input("Confirma a exclusão do CPF {} ? S/N\n".format(cpf))
+
+        if confirma == "S" or 's':
+            lista = lerarquivo()
+            lista.remove(cpf)
+            gravallistanoarquivo(lista)
+            print("CPF Deletado com sucesso !\n")
+        else:
+            selecionarfuncao()
     else:
+        print("CPF não encontrado !\n")
         selecionarfuncao()
-
 
 def buscarcpf(cpf):
 
     lista = lerarquivo()
     if cpf in lista:
-        print("CPF Existe !")
+        print("CPF Existe !\n")
 
     else:
-        print("CPF não existe!")
+        print("CPF não existe!\n")
         incluir = input("Deseja inserir ? S/N\n")
 
-        if incluir == "S":
+        if incluir == "S" or 's':
             inserircpf(cpf)
 
-        elif incluir == "N":
+        elif incluir == "N" or 'n':
             print("VSF")
 
 
